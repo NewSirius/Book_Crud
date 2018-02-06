@@ -7,6 +7,21 @@
 <head>
     <title>Books Page</title>
 </head>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    th {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+
 <body>
 
 <br/>
@@ -28,29 +43,29 @@
 <h1>BOOK LIST</h1>
 
 <c:if test="${!empty listBooks}">
-    <table class="tg">
+    <table style="border: 1px solid black;">
         <tr>
-            <td width="80">ID</td>
-            <td width="120">Title</td>
-            <td width="120">Description</td>
-            <td width="120">Author</td>
-            <td width="120">ISBN</td>
-            <td width="120">Year</td>
-            <td width="80">isRead</td>
-            <td width="60">Edit</td>
-            <td width="60">Delete</td>
+            <th width="80">ID</th>
+            <th width="120">Title</th>
+            <th width="120">Description</th>
+            <th width="120">Author</th>
+            <th width="120">ISBN</th>
+            <th width="120">Year</th>
+            <th width="80">isRead</th>
+            <th width="60">Edit</th>
+            <th width="60">Delete</th>
         </tr>
         <c:forEach items="${listBooks}" var="book">
             <tr>
-                <td>${book.id}</td>
-                <td><a href="/bookdata/${book.id}">${book.title}</a></td>
-                <td>${book.description}</td>
-                <td>${book.author}</td>
-                <td>${book.isbn}</td>
-                <td>${book.printYear}</td>
-                <td>${book.readAlready}</td>
-                <td><a href="<c:url value='/edit/${book.id}'/>">EDIT</a></td>
-                <td><a href="<c:url value='/remove/${book.id}'/>">DELETE</a></td>
+                <th>${book.id}</th>
+                <th><a href="/bookdata/${book.id}">${book.title}</a></th>
+                <th>${book.description}</th>
+                <th>${book.author}</th>
+                <th>${book.isbn}</th>
+                <th>${book.printYear}</th>
+                <th>${book.readAlready}</th>
+                <th><a href="<c:url value='/edit/${book.id}'/>">EDIT</a></th>
+                <th><a href="<c:url value='/remove/${book.id}'/>">DELETE</a></th>
             </tr>
         </c:forEach>
     </table>

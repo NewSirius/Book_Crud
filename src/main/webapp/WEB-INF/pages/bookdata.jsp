@@ -2,56 +2,31 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>BOOK</title>
 
-    <style type="text/css">
-        .tg {
+    <style>
+        table {
             border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
         }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
+        th {
             font-family: Arial, sans-serif;
             font-size: 14px;
             font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
         }
     </style>
+
 </head>
 
 <body>
 <a href="<c:url value="/books"/>">BACK</a>
 
 <h1>BOOK DETAILS</h1>
-<table class="tg">
+<table style="border: 1px solid black;">
     <tr>
         <th width="80">ID</th>
         <th width="120">Title</th>
@@ -62,13 +37,13 @@
         <th width="80">isRead</th>
     </tr>
     <tr>
-        <td>${book.id}</td>
-        <td>${book.title}</td>
-        <td>${book.description}</td>
-        <td>${book.author}</td>
-        <td>${book.isbn}</td>
-        <td>${book.printYear}</td>
-        <td>${book.readAlready}</td>
+        <th>${book.id}</th>
+        <th>${book.title}</th>
+        <th>${book.description}</th>
+        <th>${book.author}</th>
+        <th>${book.isbn}</th>
+        <th>${book.printYear}</th>
+        <th>${book.readAlready}</th>
     </tr>
 </table>
 </body>
