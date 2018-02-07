@@ -88,8 +88,12 @@ public class BookController {
 
     @RequestMapping(value = "books/search", method = RequestMethod.POST)
     public String bookSearch(@RequestParam("title") String title, Model model) {
-        Book book = this.bookService.searchBook(title);
-        model.addAttribute("book", book);
+        try {
+            Book book = this.bookService.searchBook(title);
+            model.addAttribute("book", book);
+        } catch (IndexOutOfBoundsException e)   {
+            //--//
+        }
 
         return "bookdata";
     }
