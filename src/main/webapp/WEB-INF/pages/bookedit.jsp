@@ -51,7 +51,7 @@
 
 <h1>Change Book State</h1>
 
-<c:url var="makeReadBookAction" value="/makeReadBook/${book.id}"/>
+<c:url var="makeReadBookAction" value="/edit/makeReadBook/${book.id}"/>
 
 <form:form action="${makeReadBookAction}" commandName="book">
 <table>
@@ -72,9 +72,9 @@
 
 <h1>EDIT</h1>
 
-<c:url var="addAction" value="/books/add"/>
+<c:url var="editAction" value="/edit/${book.id}"/>
 
-<form:form action="${addAction}" commandName="book">
+<form:form action="${editAction}" commandName="book">
     <table>
             <tr>
                 <td>

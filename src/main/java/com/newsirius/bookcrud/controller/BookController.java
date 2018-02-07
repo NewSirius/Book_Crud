@@ -38,14 +38,7 @@ public class BookController {
 
     @RequestMapping(value = "/books/add", method = RequestMethod.POST)
     public String addBook(@ModelAttribute("book") Book book)    {
-        if (book.getId() == 0)  {
-            this.bookService.addBook(book);
-        } else
-        {
-            this.bookService.updateBook(book);
-            return "bookedit";
-        }
-
+        this.bookService.addBook(book);
         return "redirect:/books";
     }
 
@@ -65,7 +58,15 @@ public class BookController {
         return "bookedit";
     }
 
-    @RequestMapping("makeReadBook/{id}")
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
+    public String editPOSTBook(@PathVariable("id") int id, @ModelAttribute("book") Book book) {
+        System.out.println("inside EditPOSTBook and id = " + id);
+        System.out.println(book.getId());
+        this.bookService.updateBook(book);
+        return "bookedit";
+    }
+
+    @RequestMapping("edit/makeReadBook/{id}")
     public String makeReadBook(@PathVariable("id") int id, Model model) {
         Book book = this.bookService.getBookId(id);
 
